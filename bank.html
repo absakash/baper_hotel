@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bank</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        #maro{
+            color: red;
+            display: none;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <head>
+        <h1 class="text-5xl text-center mt-6">
+            Welcome to the <strong class="text-cyan-500">
+               Money Tranjection 
+            </strong> !!!
+           </h1>
+    </head>
+
+    <main>
+        <section class="mt-12">
+            <div class="grid grid-cols-3 gap-4 w-9/12 mx-auto text-white">
+               
+                <div class="div bg-green-400 p-8 rounded-xl">
+                    <h4 id="" class="text-2xl">Deposit</h4>
+                    <div class="h2 text-5xl">$ <span id="depositMoney">00</span></div>
+                </div>
+
+                <div class="div bg-yellow-400 p-8 rounded-xl">
+                    <h4 class="text-2xl">Withdraw</h4>
+                    <div  class="h2 text-5xl">$ <span id="withdrawMoney">00</span> </div>
+                </div>
+
+
+                <div class="div bg-violet-400 p-8 rounded-xl">
+                    <h4 class="text-2xl">Blance</h4>
+                    <div class="h2 text-5xl">$ <span id="total">1200</span></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- deposit and widthdraw -->
+       
+            <p class="mt-4" id="maro" behavior="right"">
+                You have insufficent blance please deposit first then withdraw
+            </p>
+       
+
+        <section>
+            <div class="grid grid-cols-2 gap-4 w-9/12 mx-auto text-white mt-12">
+               
+                <div class="div bg-purple-700 p-8 rounded-xl">
+                    <h4 class="text-2xl mb-4">Please Deposit</h4>
+                    <input id="input-deposit" type="text" placeholder="$ enter deposit" class="w-9/12 px-3 text-black rounded-xl p-2">
+                    <button id="btn-deposit" class="mt-4 bg-amber-600 hover:bg-sky-700 px-8 py-2 text-white font-medium rounded-lg">Deposit</button>
+              
+                </div>
+
+                <div class="div bg-orange-600 p-8 rounded-xl">
+                    <h4 class="text-2xl mb-4">Please Withdraw</h4>
+                    <input id="input-withdraw"  type="text" placeholder="$ enter withdraw" class="w-9/12 px-3 block text-black rounded-xl p-2">
+                    <button id="btn-withdraw" class="mt-4 bg-sky-600 hover:bg-sky-700 px-8 py-2 text-white font-medium rounded-lg">Withdraw</button>
+              
+                </div>
+
+
+
+            </div>
+        </section>
+
+
+    </main>
+
+
+    <script>
+
+        document.getElementById('btn-deposit').addEventListener('click',function(){
+            
+            let depositInput=document.getElementById('input-deposit').value;
+            let depositInputInt=parseInt(depositInput);
+            // console.log(depositInputInt);
+            
+            let depositMoney=document.getElementById('depositMoney').innerText;
+           let depositMoneyInt=parseInt(depositMoney);
+            //console.log(depositMoneyInt);
+            
+
+   
+            document.getElementById('depositMoney').innerText=depositInputInt+depositMoneyInt;
+
+            let total=document.getElementById('total').innerText;
+            let totalInt=parseInt(total);
+            //console.log(typeof totalInt);
+            document.getElementById('total').innerText=totalInt+depositInputInt;
+            
+
+            let xxx=document.getElementById('total').innerText;
+            let x=parseInt(xxx);
+            if(x>1000)
+            {
+                document.getElementById('maro').style.display="none";
+                document.getElementById('btn-withdraw').disabled = false;
+                
+            }
+
+
+
+
+
+
+            document.getElementById('input-deposit').value="";
+
+        
+        })
+
+        document.getElementById('btn-withdraw').addEventListener('click',function(){
+            
+            let withdrawInput=document.getElementById('input-withdraw').value;
+
+            let withdrawInputInt=parseInt(withdrawInput);
+            
+            //console.log(typeof withdrawInputInt);
+
+            let withdrawMoney=document.getElementById('withdrawMoney').innerText;
+            let withdrawMoneyInt=parseInt(withdrawMoney);
+           // console.log(typeof withdrawMoneyInt);
+
+           document.getElementById('withdrawMoney').innerText=withdrawInputInt+withdrawMoneyInt;
+
+           let total=document.getElementById('total').innerText;
+            let totalInt=parseInt(total);
+            //console.log(typeof totalInt);
+            document.getElementById('total').innerText=totalInt-withdrawInputInt;
+            let xxx=document.getElementById('total').innerText;
+            let x=parseInt(xxx);
+            if(x<=1000)
+            {
+                document.getElementById('maro').style.display="block";
+                document.getElementById('btn-withdraw').disabled = true;
+                
+            }
+            else{
+                document.getElementById('btn-withdraw').disabled = false;
+
+            }
+         
+           document.getElementById('input-withdraw').value="";
+
+
+        })
+
+    </script>
+    
+</body>
+</html>

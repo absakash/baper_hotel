@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baper hotel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+       
+    </style>
+
+</head>
+<body class="bg-green-200">
+    <head>
+        <h1 class="text-5xl text-center mt-6">
+            Welcome to the <strong class="text-cyan-500">
+               Baap-Er-Bank
+            </strong> !!!
+           </h1>
+    </head>
+
+    <main id="main">
+        <section class="bg-blue-200 w-9/12 mx-auto mt-12 p-8 rounded-lg">
+            <h3 class="text-3xl mb-4 font-medium">Please Login </h3>
+            <input type="mail" name="" id="" placeholder="enter email" class="w-9/12 block mb-4 px-3 p-2 rounded-xl">
+            <input id="password" type="password" placeholder="enter password" class="w-9/12 px-3 block p-2 rounded-xl">
+            <button id="btn-submit" class="mt-4 bg-amber-600 hover:bg-sky-700 px-8 py-2 text-white font-medium rounded-lg">Submit</button>
+        </section>
+    </main>
+
+
+
+    <script>
+          document.getElementById('btn-submit').addEventListener('click',function(){
+            
+            const password=document.getElementById('password').value;
+            console.log(password);
+           
+            const main=document.getElementById('main');
+            if(password==='samir'){
+                console.log("success");
+                
+                window.location.href="bank.html"
+            }
+
+            else{
+                alert("i think you forgot the passcode");
+            }
+          })
+    </script>
+   
+</body>
+</html>
